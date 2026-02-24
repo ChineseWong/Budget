@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Test</title></head>
+<body style="background:#09090b;color:white;font-family:system-ui;padding:40px;font-size:16px;line-height:2">
+<div id="log">Loading libraries...<br></div>
+<script>
+var log = document.getElementById('log');
+function msg(t) { log.innerHTML += t + '<br>'; }
+
+window.onerror = function(m, s, l) { msg('ERROR: ' + m + ' (line ' + l + ')'); };
+</script>
+<script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" onload="msg('1. React loaded')" onerror="msg('1. React FAILED')"></script>
+<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" onload="msg('2. ReactDOM loaded')" onerror="msg('2. ReactDOM FAILED')"></script>
+<script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js" onload="msg('3. Recharts loaded')" onerror="msg('3. Recharts FAILED')"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.0/babel.min.js" onload="msg('4. Babel loaded')" onerror="msg('4. Babel FAILED')"></script>
+<script>
+msg('---');
+msg('React: ' + (typeof React !== 'undefined' ? 'YES' : 'NO'));
+msg('ReactDOM: ' + (typeof ReactDOM !== 'undefined' ? 'YES' : 'NO'));
+msg('Recharts: ' + (typeof Recharts !== 'undefined' ? 'YES' : 'NO'));
+msg('Babel: ' + (typeof Babel !== 'undefined' ? 'YES' : 'NO'));
+</script>
+<script type="text/babel">
+msg('5. Babel compilation works');
+var el = <div style={{color:'#34d399',fontSize:24,marginTop:20}}>JSX rendering works!</div>;
+ReactDOM.createRoot(document.createElement('div')).render(el);
+msg('6. React rendering works');
+msg('---');
+msg('ALL GOOD - your app should work');
+</script>
+</body>
+</html>
