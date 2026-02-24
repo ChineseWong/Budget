@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Budget</title>
+<style>body{background:#09090b;color:#34d399;font-family:system-ui;padding:40px;font-size:18px;line-height:2}</style>
+</head>
+<body>
+<h1 style="color:#fafafa">Budget v7 Test</h1>
+<p>If you can see this green text on a dark background, deployment works.</p>
+<p id="js">JavaScript: NOT loaded</p>
+<p id="react">React: NOT loaded</p>
+<script>document.getElementById("js").textContent="JavaScript: WORKS";document.getElementById("js").style.color="#34d399"</script>
+<script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" onload="document.getElementById('react').textContent='React: LOADED';document.getElementById('react').style.color='#34d399'" onerror="document.getElementById('react').textContent='React: FAILED TO LOAD';document.getElementById('react').style.color='#f87171'"></script>
+</body>
+</html>
